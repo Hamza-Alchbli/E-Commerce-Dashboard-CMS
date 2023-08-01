@@ -23,7 +23,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/modals/alert-modal";
-
+import { ApiAlert } from "@/components/ui/api-alert";
+import { useOrigin } from "@/hooks/use-origin";
 
 interface SettingsFormProps {
     initialData: Store;
@@ -40,6 +41,7 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
 }) => {
     const params = useParams();
     const router = useRouter();
+    const origin = useOrigin();
 
     const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -62,8 +64,8 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
         }
     };
 
-    const onDelete = async () => { 
-        try{
+    const onDelete = async () => {
+        try {
             setLoading(true);
             await axios.delete(`/api/stores/${params.storeId}`);
             router.refresh();
@@ -79,11 +81,11 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
 
     return (
         <>
-            <AlertModal 
+            <AlertModal
                 isOpen={open}
                 onClose={() => setOpen(false)}
                 onConfirm={onDelete}
-                loading={loading}    
+                loading={loading}
             />
             <div className="flex items-center justify-between">
                 <Heading
@@ -122,6 +124,12 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
                     </Button>
                 </form>
             </Form>
+            <Separator />
+            <ApiAlert
+                title="NEXT_PUBLIC_API_URL"
+                description={`${origin}/api/stores/${params.storeId}`}
+                variant="public"
+            />
         </>
     )
 }

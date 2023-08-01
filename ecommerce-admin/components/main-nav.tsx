@@ -14,6 +14,11 @@ export function MainNav({
 
     const routes = [
         {
+            href: `/${params.storeId}`,
+            label: `Overview`,
+            active: pathname === `/${params.storeId}`
+        },
+        {
             href: `/${params.storeId}/settings`,
             label: `Settings`,
             active: pathname === `/${params.storeId}/settings`
@@ -29,8 +34,8 @@ export function MainNav({
                     className={cn(
                         "",
                         route.active
-                            ? "opacity-50 hover:opacity-100 transition-opacity"
-                            : "opacity-100"
+                            ? "opacity-100"
+                            : "opacity-50 hover:opacity-100 transition-opacity duration-200"
                     )}>
                     {route.label}
                 </Link>
