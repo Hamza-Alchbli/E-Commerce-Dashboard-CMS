@@ -26,13 +26,17 @@ export function MainNav({
                 <Link
                     key={route.href}
                     href={route.href}
-                    className={cn("text.sm font-medium transition-colors hover:text-primary",
-                        route.active ? "text-black dar:text-white" : "text-muted-foreground"
-                    )}
-                >
+                    className={cn(
+                        "",
+                        route.active
+                            ? "opacity-50 hover:opacity-100 transition-opacity"
+                            : "opacity-100"
+                    )}>
                     {route.label}
                 </Link>
-            ))}
+            )
+            )}
+
         </nav>
     )
 };

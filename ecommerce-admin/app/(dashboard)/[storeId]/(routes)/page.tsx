@@ -1,4 +1,5 @@
 import prismadb from "@/lib/prismadb"
+import { redirect } from "next/navigation";
 
 interface DashboardPageProps {
     params: { storeId: string }
