@@ -159,7 +159,6 @@ export const ColorForm: React.FC<ColorFormProps> = ({
                     </Button>
                 </form>
             </Form>
-            <Separator />
         </>
     )
 }

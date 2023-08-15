@@ -347,7 +347,6 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                     </Button>
                 </form>
             </Form>
-            <Separator />
         </>
     )
 }

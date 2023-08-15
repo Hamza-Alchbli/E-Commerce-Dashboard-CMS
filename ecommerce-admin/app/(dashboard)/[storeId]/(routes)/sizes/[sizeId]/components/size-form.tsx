@@ -151,7 +151,6 @@ export const SizeForm: React.FC<SizeFormProps> = ({
                     </Button>
                 </form>
             </Form>
-            <Separator />
         </>
     )
 }

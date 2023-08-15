@@ -176,7 +176,6 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
                     </Button>
                 </form>
             </Form>
-            <Separator />
         </>
     )
 }
